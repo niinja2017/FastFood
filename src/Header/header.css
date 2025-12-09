@@ -1,0 +1,22 @@
+img {
+    width: 100%;
+    height: 300px;
+    border-radius: 0 0 10px 10px;
+}
+
+.header-style {
+    position: relative;
+    margin-bottom: 100px;
+}
+
+.header-style .image {
+    height: 200px;
+}
+
+.header-style .title {
+    color: white;
+    font-size: 64px;
+    position: absolute;
+    left: 30%;
+    bottom: 20px;
+}

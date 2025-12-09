@@ -3,7 +3,7 @@ import './categoryList.css'
 import instance from '../axios'
 
 const CategoryList = () => {
-    const [categories, setCategories] = useState()
+    const [categories, setCategories] = useState([])
     useEffect(() => {
         const fetchCategories = async () => {
             let response = await instance.get('categoryList')
@@ -23,9 +23,6 @@ const CategoryList = () => {
                         <a href="#" className="nav-link">همه موارد</a>
                     </li>
                     {
-                        !categories ?
-                            <span><a href="#">Loading</a></span>
-                            :
                             categories.map(category => (
                                 <li key={category.id} className='nav-item'>
                                     <a href="#" className="nav-link">{category.name}</a>

@@ -23,11 +23,11 @@ const CategoryList = () => {
                         <a href="#" className="nav-link">همه موارد</a>
                     </li>
                     {
-                            categories.map(category => (
-                                <li key={category.id} className='nav-item'>
-                                    <a href="#" className="nav-link">{category.name}</a>
-                                </li>
-                            ))
+                        categories.map(category => (
+                            <li key={category.id} className='nav-item'>
+                                <a href="#" className="nav-link">{category.name}</a>
+                            </li>
+                        ))
                     }
                 </ul>
             </div>

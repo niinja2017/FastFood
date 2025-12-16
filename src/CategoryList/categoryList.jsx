@@ -1,26 +1,27 @@
 import { useEffect, useState } from 'react'
 import './categoryList.css'
 import instance from '../axios'
+import Loading from '../Loading/Loading'
 
 const CategoryList = () => {
-    const [categories, setCategories] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [categories, setCategories] = useState()
     useEffect(() => {
         const fetchCategories = async () => {
             let response = await instance.get('categoryList')
-
             setCategories(response.data)
+            setLoading(false)
         }
         fetchCategories()
     }, [])
 
-
-
-    return (
-        <>
-            <div className='container'>
+    const renderContent = () => {
+        return (
+            loading ? <Loading />
+                :
                 <ul className='nav'>
                     <li className='nav-item'>
-                        <a href="#" className="nav-link">همه موارد</a>
+                        <a href="#" className="nav-link">All Fast Food</a>
                     </li>
                     {
                         categories.map(category => (
@@ -30,6 +31,17 @@ const CategoryList = () => {
                         ))
                     }
                 </ul>
+        )
+    }
+
+
+
+    return (
+        <>
+            <div className='container'>
+                <div className="menu-bg">
+                    {renderContent()}
+                </div>
             </div>
         </>
     )

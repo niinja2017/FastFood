@@ -16,6 +16,7 @@ const App = () => {
         setLoading(true)
         let response = await instance.get('List')
         setFastFood(response.data)
+        setFilterItems(response.data)
         setLoading(false)
     }
 
